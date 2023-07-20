@@ -6,6 +6,7 @@
     <title>Site ecommerce</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
   </head>
 <body>  
     <nav class="navbar navbar-expand-lg navbar-light bg-success" style="border-bottom: 1px solid white;">
@@ -20,7 +21,10 @@
           </form>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-sm circle btn-light float-right rounded-pill">Pannier</button>
+          <div class="float-right">
+            <button class="btn btn-sm circle btn-light rounded-pill">Pannier</button>
+            <a class="btn btn-light rounded-circle" href="" title="connecter"><i class="fa fa-user"></i></a>
+          </div>
         </div>
       </div>
     </nav>
@@ -75,7 +79,13 @@
               <img class="d-flex justify-content-center m-auto" src="images/cat-1.jpg" alt="" width="200" height="200">
             </div>
             <div class="card-footer">
-
+              <div class="d-flex">
+                <div>
+                  <h3>Tshirt</h3>
+                  <span><i class="fa fa-etoile"></i></span>
+                  <p>5000 fr</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
