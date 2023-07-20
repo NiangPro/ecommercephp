@@ -11,8 +11,8 @@
         </div>
         <div class="col-md-4">
         <div class="float-right">
-            <button class="btn btn-sm circle btn-light rounded-pill">Pannier</button>
-            <a class="btn btn-light rounded-circle" href="" title="connecter"><i class="fa fa-user"></i></a>
+            <button class="btn btn-sm circle btn-light rounded-pill">Panier</button>
+            <a class="btn btn-light rounded-circle" href="?page=login" title="connecter"><i class="fa fa-user"></i></a>
           </div>
         </div>
       </div>
@@ -21,10 +21,10 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-4">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav ml-4 ">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="?page=home">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Features</a>
