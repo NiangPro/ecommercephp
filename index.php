@@ -65,7 +65,7 @@
               <span class="float-right text-info">man</span>
             </div>
             <div class="card-body">
-              <img class="d-flex justify-content-center m-auto" src="images/tshirt.png" alt="" width="100" height="200">
+              <img class="d-flex justify-content-center m-auto" src="images/tshirt.png" alt="" width="200" height="300">
             </div>
             <div class="card-footer">
 
