@@ -70,3 +70,21 @@
     /* max-width: 100%; */
     height: auto;
   }
+
+.collection{
+    position: absolute;
+    top:10;
+}
+
+.group{
+    line-height: 0rem;
+}
+
+.new-product img{
+    width: 135px!important;
+    height: 118px!important;
+}
+
+.new-product .star{
+    font-size: 13px!important;
+}
