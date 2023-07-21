@@ -33,6 +33,18 @@ function connecter($email, $mdp){
             "mdp" => $mdp
         ]);
 
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function categories(){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM categorie");
+        $q->execute();
+
         return $q->fetchAll(PDO::FETCH_OBJ);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());
