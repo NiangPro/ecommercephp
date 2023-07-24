@@ -1,3 +1,4 @@
+<?php if (isset($_GET["page"]) && $_GET["page"] != "login" && $_GET["page"] != "register"): ?>
 </div>
           <!-- content-wrapper ends -->
 <footer class="footer">
@@ -15,6 +16,7 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+  <?php endif; ?>
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
