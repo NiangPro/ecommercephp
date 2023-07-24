@@ -51,7 +51,7 @@
     <div class="card-body new-product">
         <div class="d-flex w-100 justify-content-between mb-2">
                 <div class="float-left" style="line-height: 1rem;">
-                    <img class="img-fluid w-100" src="images/product-3.jpg" alt="">  
+                    <img class="img-fluid w-100" src="images/t1.jpg" alt="">  
                 </div>
                 <div class="float-right group mt-4">
                     <h5>Tshirt</h5>
@@ -67,7 +67,7 @@
             </div>
             <div class="d-flex w-100 justify-content-between mb-2">
                 <div class="float-left" style="line-height: 1rem;">
-                    <img class="img-fluid w-100" src="images/product-3.jpg" alt="">  
+                    <img class="img-fluid w-100" src="images/t2.jpg" alt="">  
                 </div>
                 <div class="float-right group mt-4">
                     <h5>Tshirt</h5>
@@ -83,7 +83,7 @@
             </div>
             <div class="d-flex w-100 justify-content-between mb-2">
                 <div class="float-left" style="line-height: 1rem;">
-                    <img class="img-fluid w-100" src="images/product-3.jpg" alt="">  
+                    <img class="img-fluid w-100" src="images/t4.jpg" alt="">  
                 </div>
                 <div class="float-right group mt-4">
                     <h5>Tshirt</h5>

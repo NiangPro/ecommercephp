@@ -88,3 +88,7 @@
 .new-product .star{
     font-size: 13px!important;
 }
+
+.card-carousel img{
+    height:350px!important;
+}
