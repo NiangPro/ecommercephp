@@ -27,7 +27,23 @@ if (isset($_GET["page"])) {
     require_once("themes/footer.php");
 }else{
     require_once("partials/header.php"); 
-        require_once("views/home.view.php");
+
+    if (isset($_GET["site"])) {
+        switch ($_GET["site"]) {
+            case 'panier':
+                require_once("controllers/panierController.php");
+                break;
+            case 'produit':
+                require_once("controllers/productController.php");
+                break;
+            default:
+                require_once("controllers/homeController.php");
+
+                break;
+        }
+    }else{
+        require_once("controllers/homeController.php");
+    }
     require_once("partials/footer.php"); 
 }
 
