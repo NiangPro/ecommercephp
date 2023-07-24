@@ -7,6 +7,18 @@ if (isset($_GET["page"])) {
         case 'categorie':
             require_once("controllers/categorieController.php");
             break;
+        case 'produit':
+            require_once("controllers/produitController.php");
+            break;
+        case 'login':
+            require_once("controllers/loginController.php");
+            break;
+        case 'register':
+            require_once("controllers/registerController.php");
+            break;
+        case 'dashboard':
+            require_once("controllers/dashboardController.php");
+            break;
         
         default:
             require_once("controllers/dashboardController.php");

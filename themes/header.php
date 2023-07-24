@@ -22,6 +22,15 @@
     <link rel="shortcut icon" href="assets/images/favicon.png" />
   </head>
   <body>
+  <?php if(isset($_GET["message"])  && ($_GET["page"] == "login" || $_GET["page"] == "register") ): ?>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong><?= $_GET["message"] ?></strong> .
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <?php endif; ?>
+    <?php if(isset($_GET["page"]) && $_GET["page"] != "login" && $_GET["page"] != "register"): ?>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <?php require_once("themes/navbar.php"); ?>
@@ -32,3 +41,12 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+            <?php if(isset($_GET["message"])): ?>
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong><?= $_GET["message"] ?></strong> .
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <?php endif; ?>
+        <?php endif; ?>

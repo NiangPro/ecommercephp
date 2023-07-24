@@ -10,7 +10,7 @@ try {
 function inscrire($prenom, $nom, $adresse, $tel, $email, $mdp){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO user VALUES(null, :prenom, :nom, :tel, :adresse, :email, :mdp)");
+        $q = $db->prepare("INSERT INTO user VALUES(null, :prenom, :nom, :tel, :adresse, :email, :mdp, 'user')");
         $q->execute([
             "prenom" => $prenom,
             "nom" => $nom,
@@ -38,7 +38,17 @@ function connecter($email, $mdp){
         die("Erreur : ".$th->getMessage());
     }
 }
+function produits(){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM produit");
+        $q->execute();
 
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
 function categories(){
     global $db;
     try {
@@ -101,16 +111,17 @@ function supprimerCategorie($id){
     }
 }
 
-function ajouterProduit($nom, $prix, $qteStock, $image, $categorie_id, $visted){
+function ajouterProduit($nom, $prix, $qteStock, $image, $categorie_id, $visted, $description){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO produit VALUES(null, :nom, :prix, :qteStock, :visted, :image, :categorie_id)");
+        $q = $db->prepare("INSERT INTO produit VALUES(null, :nom, :prix, :qteStock, :visted, :image, :categorie_id, :description)");
         return $q->execute([
             "nom" => $nom,
             "prix" => $prix,
             "qteStock" => $qteStock,
             "visted" => $visted,
             "image" => $image,
+            "description" => $description,
             "categorie_id" => $categorie_id
         ]);
     } catch (\PDOException $th) {

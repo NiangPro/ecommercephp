@@ -19,7 +19,7 @@
                   <span class="badge">0</span>
                 </a>
               <!-- </button> -->
-              <a class="btn btn-light rounded-circle" href="" title="connecter"><i class="fa fa-user"></i></a>
+              <a class="btn btn-light rounded-circle" href="?page=login" title="connecter"><i class="fa fa-user"></i></a>
             </div>
           </div>
         </div>
