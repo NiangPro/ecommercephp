@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 my-card">
     <div class="card-header">
         <h2>Catégories</h2>
     </div>
@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<div class="card mb-3 card2">
+<div class="card mb-3 card2 my-card">
     <div class="card-header">
         <span class="float-left text-bold title">HOT DEALS</span>
         <span class="float-right text-info">man</span>
@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-<div class="card mb-3 card2">
+<div class="card mb-3 card2 my-card">
     <div class="card-header">
         <strong class="float-left text-bold title">Les plus visités</strong>
         <span class="float-right text-info">man</span>

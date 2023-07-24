@@ -49,7 +49,7 @@
               </div>
               <!-- fin slider -->
               <!-- Collection -->
-              <div class="card card-product mt-3" style="background-color: black; ">
+              <div class="card card-product mt-3 my-card" style="background-color: black; ">
                   <img src="images/a-collection.jpg" class="d-block w-100" height="300" style="opacity: 0.5; ;"  >
                   <div class="d-flex flex-column align-items-center justify-content-center collection mt-5 ml-5" >
                       <div class="p-3 text-center" style="max-width: 700px; z-index: 100;">
@@ -60,7 +60,7 @@
                   </div>
               </div>
               <!-- fin collection -->
-              <div class="card mt-3">
+              <div class="card mt-3 my-card">
                 <div class="card-header">
                   <h3 class="text-bold">Sacs Homme et Femme</h3>
                 </div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
+                        <div class="card product-item border-0 mb-4 my-card">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                             </div>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
+                        <div class="card product-item border-0 mb-4 my-card">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="images/product-3.jpg" alt="">
                             </div>
