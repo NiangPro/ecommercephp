@@ -33,15 +33,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="?">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
+            <?php foreach($cats as $key=>$cat): ?>
+              <?php if($key <5): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="?site=category&id=<?= $cat->id ?>"><?= ucfirst($cat->nom) ?></a>
+                </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </nav>

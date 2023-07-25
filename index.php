@@ -26,6 +26,8 @@ if (isset($_GET["page"])) {
     }
     require_once("themes/footer.php");
 }else{
+    $cats = categories();
+
     require_once("partials/header.php"); 
 
     if (isset($_GET["site"])) {

@@ -3,16 +3,12 @@
         <h2>Catégories</h2>
     </div>
     <div class="card-body card1">
-        <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-            <a href="" class="nav-item nav-link">Shirts</a>
-            <a href="" class="nav-item nav-link">Jeans</a>
-            <a href="" class="nav-item nav-link">Swimwear</a>
-            <a href="" class="nav-item nav-link">Sleepwear</a>
-            <a href="" class="nav-item nav-link">Sportswear</a>
-            <a href="" class="nav-item nav-link">Jumpsuits</a>
-            <a href="" class="nav-item nav-link">Blazers</a>
-            <a href="" class="nav-item nav-link">Jackets</a>
-            <a href="" class="nav-item nav-link">Shoes</a>
+        <div class="navbar-nav w-100 overflow-hidden">
+            <?php foreach($cats as $key=>$cat): ?>
+              <?php if($key <9): ?>
+                <a href="?site=category&id=<?= $cat->id ?>" class="nav-item nav-link"><?= ucfirst($cat->nom) ?></a>
+            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

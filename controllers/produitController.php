@@ -18,7 +18,7 @@ if (isset($_POST["ajouter"])) {
     if(in_array($extension, $extensions)){
         move_uploaded_file($tmpName, 'images/'.$name);
         if (ajouterProduit($nom,$prix, $qteStock, $name, $categorie_id, 0, $description)) {
-            return header("Location:?page=produit&message=ajout avec succes");
+            unset($_GET["type"]);
         }
     }
     else{
@@ -28,6 +28,9 @@ if (isset($_POST["ajouter"])) {
 
 
 if (isset($_GET["type"])) {
+    if (isset($_GET["id"])) {
+        $prod = getProduitById($_GET["id"]);
+    }
     require_once("views/ajouts/addProduit.php");
 }else{
 
