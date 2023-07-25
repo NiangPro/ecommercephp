@@ -8,7 +8,7 @@
             </div>
 
             <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold">Thirt Femme</h3>
+                <h3 class="font-weight-semi-bold">Tshirt Femme</h3>
                 <div class="d-flex mb-3">
                     <div class="text-warning mr-2">
                         <small class="fas fa-star"></small>
@@ -129,7 +129,7 @@
                             <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
