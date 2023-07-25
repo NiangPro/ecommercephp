@@ -61,6 +61,34 @@ function categories(){
     }
 }
 
+function getCategorieById($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM categorie WHERE id =:id");
+        $q->execute([
+            "id" => $id
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getProduitById($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM produit WHERE id =:id");
+        $q->execute([
+            "id" => $id
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
 function ajouterPanier($user_id, $produit_id){
     global $db;
     try {
@@ -93,6 +121,18 @@ function ajouterCategorie($nom){
         $q = $db->prepare("INSERT INTO categorie VALUES(null, :nom)");
         return $q->execute([
             "nom" => $nom
+        ]);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+function modifierCategorie($id, $nom){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE categorie SET nom=:nom WHERE id=:id");
+        return $q->execute([
+            "nom" => $nom,
+            "id" => $id
         ]);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());

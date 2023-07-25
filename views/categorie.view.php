@@ -22,10 +22,10 @@
         <tr>
           <td> <?= $cat->nom ?> </td>
           <td> 
-          <a href="" class="btn btn-dark btn-rounded btn-icon">
+          <a href="?page=categorie&type=edit&id=<?= $cat->id ?>" class="btn btn-dark btn-rounded btn-sm">
             <i class="mdi mdi-eye"></i>
           </a>
-          <a href="" class="btn btn-danger btn-rounded btn-icon">
+          <a href="?page=categorie&delete=<?= $cat->id ?>" class="btn btn-danger btn-rounded btn-sm">
             <i class="mdi mdi-close"></i>
           </a>
           </td>
