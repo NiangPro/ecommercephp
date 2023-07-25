@@ -38,6 +38,9 @@ if (isset($_GET["page"])) {
             case 'produit':
                 require_once("controllers/productController.php");
                 break;
+            case 'category':
+                require_once("controllers/categoryController.php");
+                break;
             default:
                 require_once("controllers/homeController.php");
 

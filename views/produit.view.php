@@ -13,6 +13,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Image</th>
           <th> Nom</th>
           <th> Prix unitaire</th>
           <th> Quantite en stock</th>
@@ -24,11 +25,16 @@
       <tbody>
         <?php foreach($prods as $prod): ?>
         <tr>
+          <td>
+            <div class="nav-profile-img">
+              <img src="images/<?= $prod->image ?>" alt="image">
+            </div>
+          </td>
           <td> <?= $prod->nom ?> </td>
           <td> <?= $prod->prix ?> FCFA </td>
           <td> <?= $prod->qteStock ?> </td>
           <td> <?= $prod->description ?> </td>
-          <td> <?= $prod->categorie_id ?> </td>
+          <td> <?= $prod->nomcat ?> </td>
           <td> 
           <a href="?page=produit&type=edit&id=<?= $prod->id ?>" class="btn btn-dark btn-rounded btn-sm">
             <i class="mdi mdi-eye"></i>
