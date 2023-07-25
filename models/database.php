@@ -55,7 +55,7 @@ function getProduitsByCategorie($id){
     global $db;
     try {
         $q = $db->prepare("SELECT p.id as id, p.nom as nom, description, c.nom as nomcat, prix, qteStock, categorie_id, image, visited
-         FROM produit p , categorie c WHERE( p.categorie_id = :id AND c.id = :id)");
+         FROM produit p , categorie c WHERE( p.categorie_id = :id AND c.id = :id) ORDER BY id DESC");
         $q->execute(["id"=>$id]);
 
         return $q->fetchAll(PDO::FETCH_OBJ);
@@ -99,6 +99,19 @@ function getProduitById($id){
         ]);
 
         return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getProduitVisited(){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT p.id as id, p.nom as nom, description, c.nom as nomcat, prix, qteStock, categorie_id, image, visited
+        FROM produit p , categorie c WHERE( p.categorie_id = c.id AND p.visited = 1) ORDER BY id DESC");
+        $q->execute();
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());
     }
@@ -197,6 +210,22 @@ function modifierProduit($id , $nom, $prix, $qteStock, $categorie_id, $descripti
             "qteStock" => $qteStock,
             "description" => $description,
             "categorie_id" => $categorie_id,
+            "id" => $id
+        ]);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function visited($id){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE produit 
+                    SET visited =:visited
+                    WHERE id =:id
+        ");
+        return $q->execute([
+            "visited" => 1,
             "id" => $id
         ]);
     } catch (\PDOException $th) {

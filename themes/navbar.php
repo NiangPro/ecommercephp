@@ -24,7 +24,7 @@
                   <img src="assets/images/faces/face28.png" alt="image">
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Henry Klein</p>
+                  <p class="mb-1 text-black"><?= $user->prenom ?> <?= $user->nom ?></p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
@@ -34,7 +34,7 @@
                 <div class="p-2">
                   
                   <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Profile</span>
+                    <span>Profil</span>
                     <span class="p-0">
                       <span class="badge badge-success">1</span>
                       <i class="mdi mdi-account-outline ml-1"></i>
@@ -46,7 +46,7 @@
                   </a>
                   <div role="separator" class="dropdown-divider"></div>
                   
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="?page=logout">
                     <span>Deconnexion</span>
                     <i class="mdi mdi-logout ml-1"></i>
                   </a>

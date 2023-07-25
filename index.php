@@ -1,5 +1,10 @@
 <?php 
+session_start();
 require_once("models/database.php");
+
+if (isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+}
 
 if (isset($_GET["page"])) {
     require_once("themes/header.php");
@@ -12,6 +17,9 @@ if (isset($_GET["page"])) {
             break;
         case 'login':
             require_once("controllers/loginController.php");
+            break;
+        case 'logout':
+            require_once("controllers/logoutController.php");
             break;
         case 'register':
             require_once("controllers/registerController.php");
