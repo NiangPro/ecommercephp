@@ -1,6 +1,6 @@
     <div class="fixed-top mb-5">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-info" style="border-bottom: 1px solid white;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 1px solid white;">
         <div class="row w-100 ml-auto">
           <div class="col-md-4">
             <a href="#" class="text-uppercase navbar-brand">SUNU<span style="color: red;">SHOP</span></a>
@@ -24,7 +24,7 @@
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg navbar-light bg-info mb-5">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,15 +33,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="?">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
+            <?php foreach($cats as $key=>$cat): ?>
+              <?php if($key <5): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="?site=category&id=<?= $cat->id ?>"><?= ucfirst($cat->nom) ?></a>
+                </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </nav>

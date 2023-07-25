@@ -1,8 +1,5 @@
 <?php 
 
-$prods =produits();
-$cats = categories();
-
 if (isset($_POST["ajouter"])) {
     extract($_POST);
 
@@ -18,7 +15,7 @@ if (isset($_POST["ajouter"])) {
     if(in_array($extension, $extensions)){
         move_uploaded_file($tmpName, 'images/'.$name);
         if (ajouterProduit($nom,$prix, $qteStock, $name, $categorie_id, 0, $description)) {
-            return header("Location:?page=produit&message=ajout avec succes");
+            unset($_GET["type"]);
         }
     }
     else{
@@ -26,9 +23,28 @@ if (isset($_POST["ajouter"])) {
     }
 }
 
+if (isset($_POST["modifier"])) {
+    extract($_POST);
+
+    if (modifierProduit($_GET["id"], $nom, $prix, $qteStock, $categorie_id,$description)) {
+        unset($_GET["type"]);
+        unset($_GET["id"]);
+    }
+}
+
+
+$prods =produits();
+$cats = categories();
 
 if (isset($_GET["type"])) {
-    require_once("views/ajouts/addProduit.php");
+    if (isset($_GET["id"])) {
+        $prod = getProduitById($_GET["id"]);
+    }
+    if($_GET["type"] == "edit"){
+        require_once("views/ajouts/editProduit.php");
+    }else{
+        require_once("views/ajouts/addProduit.php");
+    }
 }else{
 
     require_once("views/produit.view.php");

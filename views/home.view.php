@@ -62,82 +62,36 @@
               <!-- fin collection -->
               <div class="card mt-3 my-card">
                 <div class="card-header">
-                  <h3 class="text-bold">Sacs Homme et Femme</h3>
+                  <h3 class="text-bold">Vetements</h3>
                 </div>
                 <div class="card-body">
                   <div class="row px-xl-5 pb-3">
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="images/product-1.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-2 pb-2 group">
-                                <h6 class="text-truncate mb-3">Robe Courte</h6>
-                                <p>
-                                    <i class="fa fa-star text-warning"></i> 
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                </p>
-                                <div class="d-flex justify-content-center">
-                                    <h6>20000 fcfa</h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="?site=produit" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-eye text-warning mr-1"></i></a>&nbsp;
-                                <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4 my-card">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-2 pb-2 group">
-                                <h6 class="text-truncate mb-3">Tshirt Enfant</h6>
-                                <p>
-                                    <i class="fa fa-star text-warning"></i> 
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                </p>
-                                <div class="d-flex justify-content-center">
-                                    <h6>15000 fcfa</h6><h6 class="text-muted ml-2"><del>20000 fcfa</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-eye text-warning mr-1"></i></a>&nbsp;
-                                <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4 my-card">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="images/product-3.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-2 pb-2 group">
-                                <h6 class="text-truncate mb-3">TShirt Adulte</h6>
-                                <p>
-                                    <i class="fa fa-star text-warning"></i> 
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                </p>
-                                <div class="d-flex justify-content-center">
-                                    <h6>19000 fcfa</h6><h6 class="text-muted ml-2"><del>25000 fcfa</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-eye text-warning mr-1"></i></a>&nbsp;
-                                <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php foreach($prodsCat as $p): ?>
+                      <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                          <div class="card product-item border-0 mb-4">
+                              <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                  <img class="img-fluid" width="100%" height="250" src="images/<?= $p->image ?>" alt="">
+                              </div>
+                              <div class="card-body border-left border-right text-center p-0 pt-2 pb-2 group">
+                                  <h6 class="text-truncate mb-3"><?= $p->nom ?></h6>
+                                  <p>
+                                      <i class="fa fa-star text-warning"></i> 
+                                      <i class="fa fa-star text-warning"></i>
+                                      <i class="fa fa-star text-warning"></i>
+                                      <i class="fa fa-star text-warning"></i>
+                                      <i class="fa fa-star text-warning"></i>
+                                  </p>
+                                  <div class="d-flex justify-content-center">
+                                      <h6><?= $p->prix ?> fcfa</h6>
+                                  </div>
+                              </div>
+                              <div class="card-footer d-flex justify-content-between bg-light border">
+                                  <a href="?site=produit&id=<?= $p->id ?>" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-eye text-warning mr-1"></i></a>&nbsp;
+                                  <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                    <?php endforeach; ?>
                   </div>
                 </div>
               </div>

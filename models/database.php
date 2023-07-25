@@ -41,8 +41,22 @@ function connecter($email, $mdp){
 function produits(){
     global $db;
     try {
-        $q = $db->prepare("SELECT * FROM produit");
+        $q = $db->prepare("SELECT p.id as id, p.nom as nom, description, c.nom as nomcat, prix, qteStock, categorie_id, image, visited
+         FROM produit p , categorie c WHERE p.categorie_id = c.id");
         $q->execute();
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getProduitsByCategorie($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT p.id as id, p.nom as nom, description, c.nom as nomcat, prix, qteStock, categorie_id, image, visited
+         FROM produit p , categorie c WHERE( p.categorie_id = :id AND c.id = :id)");
+        $q->execute(["id"=>$id]);
 
         return $q->fetchAll(PDO::FETCH_OBJ);
     } catch (\PDOException $th) {
@@ -56,6 +70,35 @@ function categories(){
         $q->execute();
 
         return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getCategorieById($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM categorie WHERE id =:id");
+        $q->execute([
+            "id" => $id
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getProduitById($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT p.id as id, p.nom as nom, description, c.nom as nomcat, prix, qteStock, categorie_id, image, visited
+        FROM produit p , categorie c WHERE( p.categorie_id = c.id AND p.id = :id)");
+        $q->execute([
+            "id" => $id
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());
     }
@@ -98,6 +141,18 @@ function ajouterCategorie($nom){
         die("Erreur : ".$th->getMessage());
     }
 }
+function modifierCategorie($id, $nom){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE categorie SET nom=:nom WHERE id=:id");
+        return $q->execute([
+            "nom" => $nom,
+            "id" => $id
+        ]);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
 
 function supprimerCategorie($id){
     global $db;
@@ -114,7 +169,7 @@ function supprimerCategorie($id){
 function ajouterProduit($nom, $prix, $qteStock, $image, $categorie_id, $visted, $description){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO produit VALUES(null, :nom, :prix, :qteStock, :visted, :image, :categorie_id, :description)");
+        $q = $db->prepare("INSERT INTO produit VALUES(null, :nom, :prix, :qteStock, :visted, :image, :description, :categorie_id)");
         return $q->execute([
             "nom" => $nom,
             "prix" => $prix,
@@ -123,6 +178,26 @@ function ajouterProduit($nom, $prix, $qteStock, $image, $categorie_id, $visted, 
             "image" => $image,
             "description" => $description,
             "categorie_id" => $categorie_id
+        ]);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function modifierProduit($id , $nom, $prix, $qteStock, $categorie_id, $description){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE produit 
+                    SET nom =:nom, prix =:prix, qteStock =:qteStock, categorie_id =:categorie_id, description =:description
+                    WHERE id =:id
+        ");
+        return $q->execute([
+            "nom" => $nom,
+            "prix" => $prix,
+            "qteStock" => $qteStock,
+            "description" => $description,
+            "categorie_id" => $categorie_id,
+            "id" => $id
         ]);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());

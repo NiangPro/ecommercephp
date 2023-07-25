@@ -13,6 +13,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Image</th>
           <th> Nom</th>
           <th> Prix unitaire</th>
           <th> Quantite en stock</th>
@@ -22,18 +23,23 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach($prods as $cat): ?>
+        <?php foreach($prods as $prod): ?>
         <tr>
-          <td> <?= $cat->nom ?> </td>
-          <td> <?= $cat->pu ?> </td>
-          <td> <?= $cat->qteStock ?> </td>
-          <td> <?= $cat->description ?> </td>
-          <td> <?= $cat->categorie_id ?> </td>
+          <td>
+            <div class="nav-profile-img">
+              <img src="images/<?= $prod->image ?>" alt="image">
+            </div>
+          </td>
+          <td> <?= $prod->nom ?> </td>
+          <td> <?= $prod->prix ?> FCFA </td>
+          <td> <?= $prod->qteStock ?> </td>
+          <td> <?= $prod->description ?> </td>
+          <td> <?= $prod->nomcat ?> </td>
           <td> 
-          <a href="" class="btn btn-dark btn-rounded btn-icon">
+          <a href="?page=produit&type=edit&id=<?= $prod->id ?>" class="btn btn-dark btn-rounded btn-sm">
             <i class="mdi mdi-eye"></i>
           </a>
-          <a href="" class="btn btn-danger btn-rounded btn-icon">
+          <a href="" class="btn btn-danger btn-rounded btn-sm">
             <i class="mdi mdi-close"></i>
           </a>
           </td>

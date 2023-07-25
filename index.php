@@ -26,6 +26,8 @@ if (isset($_GET["page"])) {
     }
     require_once("themes/footer.php");
 }else{
+    $cats = categories();
+
     require_once("partials/header.php"); 
 
     if (isset($_GET["site"])) {
@@ -35,6 +37,9 @@ if (isset($_GET["page"])) {
                 break;
             case 'produit':
                 require_once("controllers/productController.php");
+                break;
+            case 'category':
+                require_once("controllers/categoryController.php");
                 break;
             default:
                 require_once("controllers/homeController.php");
