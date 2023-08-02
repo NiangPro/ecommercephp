@@ -7,8 +7,8 @@
           </div>
           <div class="col-md-4">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+              <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
             </form>
           </div>
           <div class="col-md-4">
@@ -16,10 +16,16 @@
               <!-- <button class="btn btn-sm circle btn-light rounded-pill"> -->
                 <a href="?site=panier" class="btn border">
                   <i class="fas fa-shopping-cart text-white"></i>
-                  <span class="badge">0</span>
+                  <?php if(isset($user)): ?>
+                  <span class="badge text-white"><?= $nbreProduit ?></span>
+                  <?php endif; ?>
                 </a>
               <!-- </button> -->
-              <a class="btn btn-light rounded-circle" href="?page=login" title="connecter"><i class="fa fa-user"></i></a>
+              <?php if(isset($user) && $user->role == "user"): ?>
+                <a class="btn btn-light rounded-circle" href="?site=profil" title="connecter"><?= $user->prenom ?><i class="fa fa-user"></i></a>
+              <?php else: ?>
+                <a class="btn btn-light rounded-circle" href="?page=login" title="connecter"><i class="fa fa-user"></i></a>
+                <?php endif; ?>
             </div>
           </div>
         </div>

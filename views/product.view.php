@@ -20,21 +20,22 @@
                 </div>
                 <h3 class="font-weight-semi-bold mb-4"><?= $prod->prix ?> fcfa</h3>
                 <p class="mb-4"><?= $prod->description ?>.</p>
+                
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus" >
+                            <button class="btn btn-primary btn-minus" onclick="editQuantite('qteProd', '-')" >
                             <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <input type="text" id="qteProd" class="form-control bg-secondary text-center" value="1">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
+                            <button class="btn btn-primary btn-plus" onclick="editQuantite('qteProd', '+')">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-success px-3"><i class="fa fa-shopping-cart mr-1"></i> Ajouter Pannier</button>
+                    <button type="submit" name="addPanier" class="btn btn-success px-3"><i class="fa fa-shopping-cart mr-1"></i> Ajouter Pannier</button>
                 </div>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Suivre</p>

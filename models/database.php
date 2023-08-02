@@ -63,6 +63,19 @@ function getProduitsByCategorie($id){
         die("Erreur : ".$th->getMessage());
     }
 }
+
+function clients(){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM user WHERE role != :role");
+        $q->execute(["role" => "admin"]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
 function categories(){
     global $db;
     try {
@@ -116,14 +129,44 @@ function getProduitVisited(){
         die("Erreur : ".$th->getMessage());
     }
 }
-
-function ajouterPanier($user_id, $produit_id){
+function getPanier($iduser){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO panier VALUES(null, :user_id, :produit_id)");
+        $q = $db->prepare("SELECT c.id as id, p.nom as nom, description, qte, prix, qteStock, produit_id, user_id, image, visited
+        FROM produit p, panier c WHERE (c.user_id = :iduser AND c.produit_id = p.id) ORDER BY p.id DESC");
+        $q->execute([
+            "iduser" => $iduser
+        ]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function getProduitPanier($iduser, $idproduit){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT c.id as id, p.nom as nom, description, qte, prix, qteStock, produit_id, user_id, image, visited
+        FROM produit p, panier c WHERE (c.produit_id = :idproduit AND c.user_id = :iduser)");
+        $q->execute([
+            "iduser" => $iduser,
+            "idproduit" => $idproduit,
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+function ajouterPanier($user_id, $produit_id, $qte){
+    global $db;
+    try {
+        $q = $db->prepare("INSERT INTO panier VALUES(null, :user_id, :produit_id, :qte)");
         return $q->execute([
             "user_id" => $user_id,
-            "produit_id" => $produit_id
+            "produit_id" => $produit_id,
+            "qte" => $qte,
         ]);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());
@@ -137,6 +180,20 @@ function supprimerProduitPanier($user_id, $produit_id){
         return $q->execute([
             "user_id" => $user_id,
             "produit_id" => $produit_id
+        ]);
+    } catch (\PDOException $th) {
+        die("Erreur : ".$th->getMessage());
+    }
+}
+
+function modifierProduitPanier($user_id, $produit_id, $qte){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE panier SET qte =:qte WHERE user_id =:user_id AND produit_id =:produit_id");
+        return $q->execute([
+            "user_id" => $user_id,
+            "produit_id" => $produit_id,
+            "qte" => $qte
         ]);
     } catch (\PDOException $th) {
         die("Erreur : ".$th->getMessage());

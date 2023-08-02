@@ -1,5 +1,6 @@
 <!-- Cart Start -->
     <div class="container-fluid pt-5 mt-5">
+        <?php if(isset($user)): ?>
         <div class="row px-xl-5 mt-5">
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-bordered text-center mb-0">
@@ -13,9 +14,10 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
+                        <?php foreach($prodsPanier as $p): ?>
                         <tr>
-                            <td class="align-middle"><img src="images/product-1.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">20000 fcfa</td>
+                            <td class="align-middle"><img src="images/<?= $p->image ?>" alt="" style="width: 50px;"> <?= $p->nom ?></td>
+                            <td class="align-middle"><?= $p->prix ?> fcfa</td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
@@ -23,7 +25,7 @@
                                         <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $p->qte ?>">
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
@@ -31,30 +33,10 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">20000 fcfa</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+                            <td class="align-middle"><?= $p->prix*$p->qte ?> fcfa</td>
+                            <td class="align-middle"><a href="?site=panier&deleteprod=<?= $p->produit_id ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
                         </tr>
-                        <tr>
-                            <td class="align-middle"><img src="images/product-2.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">16000 fcfa</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">16000 fcfa</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -79,5 +61,14 @@
                 </div>
             </div>
         </div>
+        <?php else: ?>
+            <div class="alert mt-5 text-center alert-warning alert-dismissible fade show" role="alert">
+                <strong>Veuillez-vous <a href="?page=login">connecter</a> d'baord</strong> .
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+        <?php endif; ?>
+
     </div>
 <!-- Cart End -->

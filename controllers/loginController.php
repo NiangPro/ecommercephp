@@ -1,7 +1,5 @@
 <?php 
 
-unset($_SESSION["user"]);
-session_destroy();
 
 if (isset($_POST["connecter"])) {
     extract($_POST);
@@ -11,7 +9,7 @@ if (isset($_POST["connecter"])) {
         if ($user->role =="admin") {
             return header("Location:?page=dashboard");
         }else{
-            return header("Location:?page=home");
+            return header("Location:?site=profil");
         }
     }else{
         return header("Location:?page=login&message='Email ou mot de passe incorrect'");

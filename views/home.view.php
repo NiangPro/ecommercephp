@@ -88,7 +88,7 @@
                               </div>
                               <div class="card-footer d-flex justify-content-between bg-light border">
                                   <a href="?site=produit&id=<?= $p->id ?>" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-eye text-warning mr-1"></i></a>&nbsp;
-                                  <a href="" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
+                                  <a href="?cart&idprod=<?= $p->id ?>" class="btn btn-outline-info btn-sm text-dark"><i class="fas fa-shopping-cart text-warning mr-1"></i></a>
                               </div>
                           </div>
                       </div>
