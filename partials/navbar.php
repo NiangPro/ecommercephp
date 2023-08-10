@@ -3,7 +3,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 1px solid white;">
         <div class="row w-100 ml-auto">
           <div class="col-md-4">
-            <a href="#" class="text-uppercase navbar-brand">SUNU<span style="color: red;">SHOP</span></a>
+            <a href="#" class="text-uppercase navbar-brand">SUNU<span style="color: orange;">SHOP</span></a>
           </div>
           <div class="col-md-4">
             <form class="form-inline my-2 my-lg-0">
